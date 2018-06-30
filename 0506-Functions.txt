@@ -1,0 +1,80 @@
+User-defined functions
+----------------------
+
+Python uses "def" keyword to define the function.
+
+Syntax:
+
+def your_function_name(arguments..):
+    statement1
+    statement2
+    ......
+
+
+And to call the functions,
+ 
+  your_function_name(parameters...)
+
+The function can returns a value; using "return" keyword.
+
+Example: Define functions add, mul, div and sub 
+
+my-func.py
+----------
+# It is good practice to define the function at begin of program
+
+def add(no1,no2):
+    return no1+no2
+
+def sub(no1,no2):
+    return no1 - no2
+
+def mul(no1, no2):
+    return no1 * no2
+
+def div(no1, no2):
+    return no1 / no2
+
+# Put atlease one blank line between two definitions
+
+# Now, call the functions
+
+no = add(10,20)
+print(no)
+print( add(40,5) )
+print( mul(4,5) )
+print( div(4,5) )
+
+p = add(10,sub(4,mul(4,5)))
+print(p)
+
+Example: my_line print  horizontal char "n" times
+
+def my_line(n):
+    print()
+    for a in range(n):
+        print("-",end="")
+
+# Call functions
+n = int(input("Enter value : "))
+my_line(n) 
+print("\nHello, Python")      
+my_line(40)
+
+for i in range(20):
+    my_line(i)
+
+Example: my_line prints  given char horizontally "n" times
+
+def my_line(ch,n):
+   print()
+   for a in range(n):
+     print(ch, end = "")
+
+my_line("*", 10)
+# my_line(40,"#")  # Error 
+my_line( n = 20, ch = "%")  # Positional parameters
+my_line( ch = "@", n = 50 )  # Positional parameters
+
+
+

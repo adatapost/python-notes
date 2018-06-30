@@ -1,0 +1,186 @@
+Inheritance
+===========
+
+What is "Inheritance"?
+
+   The "inheritance" mechanism describe the relationship between two or more classes.
+
+   In Inheritance, there will be "is" relationship between two classes:
+
+      For instance,
+
+           Language
+             |
+  -----------------------------
+  |           |               |
+English      Hindi            Gujarati
+                                 |
+                             -------------------------------------
+                             |                 |                 |
+                          Mehsani             Kutchi         Kathiawadi
+           
+   Here is how "is" relationship exists between two classes:
+
+          Hindi "is" Language  but Laguage "is" Hindi is not true
+           ^            ^
+          Child       Parent 
+          class       class
+            |           |
+            V           V
+         Kutchi "is" Gujarati
+         Gujarati "is" Language
+
+ Notice that all classes share the "Language" class properties or all classes are of  "Language" type. So, all classes uses the "FORM" of the "Language" class.
+
+
+ Definition:  Inheritance is a technique to re-use the "FORM" of existing classes.
+
+ In Python, following syntax allow us to re-use the "FORM" of existing class.
+
+ class NewClassName(ExistingClass):
+       pass
+
+ In Inheritance relationship, the "ExistingClass", a class whose FORM you wish to re- use is called "Super class" or "Base class" or "Parent Class" and the newly created
+ class that re-use the FORM of Super/Base/Parent class is called "Sub class" or
+ "Derived class" or "Child Class".
+
+General Syntax:
+
+ Class SubClass(BaseClass1,SuperClass2,.....):
+     pass
+
+
+The object class - Ultimate super class of all classes in Python
+================
+
+
+When you define a class, your class will become sub-class of "object" class automatically:
+
+class Student:
+   pass
+
+is equivalent to,
+
+class Student(object):
+   pass
+
+Why we have to use this (Inheritance) technique ?
+--------------------------------------------------
+Basically, super classes are not easy to re-define. We need to write huge amount of code and again if we want to re-use very same code, we have to design that class as "super" class.
+
+In some other cases where we are unable to define the complex classes or we have lack of knowledge or even lack of time so we can use this technique to re-use the class very efficiently.
+
+
+
+
+Example:
+
+class Language(Object):
+   pass
+
+class English(Langauge):
+   pass
+
+class Gujarati(Language):
+   pass
+
+class Kutchi(Gujarati)
+   pass
+
+
+Example: This example demonstrate the use of Inheritance technique
+
+class Person:
+    def __init__(self):
+        self.age = 0
+        self.name = ""
+    def show(self):
+        print("Name : ",self.name, "Age : ",self.age)
+
+class Student(Person):
+    def __init__(self):
+        self.standard = 0
+    def show_student(self):
+        self.show()
+        print("Standard :", self.standard )
+
+class Teacher(Person):
+    def __init__(self):
+        self.subject = ""
+    def show_teacher(self):
+        self.show()
+        print("Subject :", self.subject )
+
+# Test 
+s = Student()
+s.name = "Meena"
+s.age = 10
+s.standard = 5
+# s.show()
+s.show_student()
+
+t = Teacher()
+t.name = "Meena"
+t.age = 50
+t.subject = "English"
+t.show()
+t.show_teacher()
+
+The super() built-in function
+===============================
+The super() function is used to distinguish the super class members from sub-class members especially when we have same named members in both classes.
+
+class SuperClass:
+    def one(self):
+       pass
+
+class SubClass(SuperClass):
+    def one(self):
+        super().one() # will call the super method
+        
+Example:
+
+class Person:
+    def __init__(self, name = "", age = 0):
+        self.age = age
+        self.name = name
+    def show(self):
+        print("Name : ",self.name, "Age : ",self.age)
+
+class Student(Person):
+    def __init__(self,name = "", age = 0, standard = 0):
+        super().__init__(name,age)
+        self.standard = standard
+    def show(self):
+        super().show()
+        print("Standard :", self.standard )
+
+class Teacher(Person):
+    def __init__(self, name = "", age = 0, subject = ""):
+        super().__init__(name,age)
+        self.subject = subject
+    def show(self):
+        super().show()
+        print("Subject :", self.subject )
+
+    
+# Test 
+
+s = Student("Meena",10,5)
+s.show()
+t = Teacher("Raj",40,"Maths")
+t.show()
+
+people = [s,t, Teacher("Reena",30,"Science"), Student("Keena",7,2) ]
+for p in people:
+    p.show()
+ 
+
+
+
+
+
+
+ 
+
+   

@@ -1,0 +1,248 @@
+Function takes two parameters - start_value and stop_value and returns prime numbers between these two values.
+
+def get_primes_imp(no1, no2):
+    result = []
+    for a in range(no1, no2+1):
+        for b in range(2, (a+1) // 2):
+            if a % b == 0:
+                break
+        else:
+            result.append(a)
+    return result
+
+def get_primes(no1,no2):
+    result = []
+    for a in range(no1,no2+1):
+        is_prime = True
+        for b in range(2,a):
+            if a % b == 0:
+                is_prime = False
+                break
+        if is_prime:
+            result.append( a )
+    return result
+
+# Call
+
+a = get_primes(1,200)            
+b = get_primes(5000,5500)
+print(a)
+print(b)
+          
+The extended slice [start:stop:step]
+-------------------------------------
+>[10,20,30,40,50,60][::2]
+[10,30,50]
+>[10,20,30,40,50,60][::-1]
+[60,50,40,30,20,10]
+>"Hello"[::-1]
+olleH
+
+Note: Step value can be negative or positive
+
+
+Example: Menu driven program allows user to push, pop and print queue data.
+
+Output:
+
+1. Push
+2. Pop
+3. Print
+0. Exit
+
+Enter your choice : 1
+
+menu.py
+=======
+# Menu driven program allows user to perform actions on queue data
+def push(queue, item):
+    """Push or insert an item into the queue"""
+    queue.append(item)
+
+def pop(queue):
+    """Pop / remove first item from queue"""
+    value = False  # Indicated the queue is empty
+    if len(queue)!=0:
+        value = queue[0]
+        queue.remove( queue[0] )
+    return value
+
+def print_queue(queue):
+    """Prints the queue"""
+    print(queue)
+
+def my_menu():
+    choice = 1
+    queue = []
+    while choice:
+      print("1. Push")
+      print("2. Pop")
+      print("3. Print")
+      print("0. Exit")
+      choice = int(input("Enter the choice (0 to 3) : "))
+
+      if choice == 1:
+          item = int(input("Enter the item : "))
+          push(queue,item)
+      elif choice == 2:
+          item = pop(queue)
+          if item:
+              print(f"{item} popped!")
+          else:
+              print("Queue is empty.....!")
+      elif choice == 3:
+          print_queue(queue)
+      elif choice!=0:
+          print("Invalid choice!!! Reenter please")
+
+# menu call
+my_menu()
+
+Example: Menu driven program to perform "Stack" operations - push, pop and print
+Example: We've some questions in a list object
+
+Hint:
+questions = []
+questions.append( ["What is OS?", "First answer","Second answer", "Third Ans",1,2)
+questions.append( ["Ques2?", "First answer","Second answer", "Third Ans",3,1)
+questions.append( ["Que3?", "First answer","Second answer", "Third Ans",2,2)
+
+Note: [question,option1, option2, option3, correct-ans, user-ans]
+
+Output
+Question: What is OS?
+        1.  First  answe
+        2.  ....
+        3.  ..
+        Enter your choice : 2
+
+
+Version-1
+def question_paper():
+    questions = []
+    questions.append(["Question1?", "Op1", "Op2", "Op3", 1])
+    questions.append(["Question2?", "Op11", "Op21", "Op31", 2])
+    questions.append(["Question3?", "Op12", "Op22", "Op32", 3])
+    for a in questions:
+        print(a[0])
+        print("\t1.",a[1])
+        print("\t2.", a[2])
+        print("\t3.", a[3])
+        b = int(input("Enter the choice : "))
+        a.append(b)
+    for a in questions:
+        print(a[0])
+        print("\t1.", a[1])
+        print("\t2.", a[2])
+        print("\t3.", a[3])
+        print("You're correct!!!") if a[4] == a[5] else print("Wrong!!!")
+        
+question_paper()
+
+
+Version-2
+=========
+
+def question_paper():
+    questions = []
+    result = []
+    correct = 0                  # Question    Three options        Correct User choice
+    questions.append(["Question1?", "Op1", "Op2", "Op3", 1,      0])
+    questions.append(["Question2?", "Op11", "Op21", "Op31", 2,0])
+    questions.append(["Question3?", "Op12", "Op22", "Op32", 3,0])
+    for a in questions:
+        print(a[0])
+        print("\t1.",a[1])
+        print("\t2.", a[2])
+        print("\t3.", a[3])
+        a[5] = int(input("Enter the choice : "))
+        message = "Correct" if a[4] == a[5] else "Incorrect"
+        if a[4] == a[5]:
+            correct+=1
+        result.append(F"Answer of question({a[0]}) is {message} ")
+    result.append(F"Total correct answers : {correct}")
+    result.append(F"Total incorrect answers : {(len(questions)-correct)}")
+    result.append( round( correct / len(questions) * 100,2 ) )
+    for m in result:
+        print(m)        
+     
+# main     
+question_paper()
+
+Example: Rotate the list element left by one position
+   e.g   [10,20,30,40,50]
+Output:  [20,30,40,50,10]      
+
+def rotate_left(items):
+    s = items[0]
+    items.remove(s)
+    items.append(s)
+    return items
+
+p = rotate_left([11,22,33,44,55])
+print(p)
+cities = ["Meh","Pat","Sur"]
+result = rotate_left(cities)
+print(result)
+
+OR
+
+def rotate_left(items, position):
+    return items[position:] + items[:position]
+
+cities = ["Meh","Pat","Sur"]
+result = rotate_left(cities,2)
+print(cities)
+print(result)
+
+Example:    Program to reserve the bus seat and also cancel it
+  1   2
+| 0 | 0 |   Enter the seat No : 3   (Then occupies it if it is not occupied)
+|---|---|                           Note: X means occuied
+| x | 0 |  
+|---|---|
+| 0 | 0 |
+|---|---|
+| 0 | 0 |
+|---|---|
+
+Hint:   
+seats =[ 
+ [0,0],
+ [0,0],
+ [0,0],
+ [0,0]
+]
+seat_no = 3       # Input seat number 
+seat_no -= 1      # 2 - Because the list begins with 0 index
+r = seat_no // 2  # 0 
+c = seat_no % 2   # 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+ 
+            
+
+
+
+
+
+
+

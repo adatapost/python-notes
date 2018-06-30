@@ -1,0 +1,109 @@
+Bitwise operators
+
+Bitwise operators are used to manipulate the bit pattern of integral value.
+
+& bitwise operator - It tests whether the given bit is on or off
+| bitwise operator - It set the bit (turn off bit into on bit)
+^ bitwise exclusive or - It turn on a off bit and vice-versa
+<< shift left -- It inserts off bit(s) at left of the binary pattern
+>> shift right -- It inserts off bit(s) at right of the binary pattern
+
+Assume that there are Eight gates in our city and status of each gate is defined via 1 and 0 -- 1 means open and 0 means close
+
+Example:
+
+>>>no = 0      # 1 byte = 8 bits 
+               
+Will turn off all bits,
+
+128  64   32  16  8  4   2   1
+ 8   7     6  5   4  3   2  1   Bit Position
+ 0   0     0  0   0  0   0  0   Bit value
+
+>>>no = 4    # Open the 3rd gate 
+
+  0  0  0  0   0  1   0  0  Open 3rd gate
+
+We can directly assign integer value to the object to form the bit pattern but now we want to open another gate - number 6 without affecting other gates:
+
+   We can't set this -->>> no = 32  <-- This will erase 3rd bit
+
+
+Example:
+>>>bin(10)   # bin() function convert integer to ninary
+0b1010
+>>>no = 10
+>>>if no & 8: 
+      print("On")
+   else:
+      print("Off")
+
+Above snippet check 4th bit and prints "On" 
+
+| bitwise or operator to turn on the bit
+>no = 10
+>bin(no)
+>no = no & 16   # Turn on 5th bit
+>bin(no)
+>no = no & 128  # Turn on 8th bit
+>bin(no)
+
+^ Exclusive or operator
+
+  bit1   ^  bit2   = Result
+    1    ^   1     =  0
+    0    ^   0     =  0
+    1    ^   0     =  1
+    0    ^   1     =  1
+>1 ^ 1
+>0b1010 ^ 0b1010
+>0b1010 ^ 0b0010
+ 
+
+Integer Number to binary, hexadecimal and octal via bin(), hex() and oct() built-in functions
+------------------------------------
+>no = 10
+>bin(no)
+>hex(no)
+>oct(no)
+>bin(65535)
+>hex(65535)
+
+We can express integer literal using 0b (binary), 0x (hexa) and 0o(octal) prefix:
+
+>0b10100
+>0xAAA
+0o1232
+
+Example: City has eight gate controlled by the operator. Write a program to check whether the given gate is opened or closed.
+
+Example: Write a program to accept gate number and open it
+Example: Write a program to accept gate number and close it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+ 
+
+  

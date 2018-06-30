@@ -1,0 +1,39 @@
+Example: 
+
+value = 20
+for a in range(1, value):
+    for b in range(1, value):
+        if a == 1 or b == 1 or a == value-1 or b == value-1:
+            print(1, end = ' ')
+        else:
+            print(0, end = ' ')
+    print()  # Newline
+     
+[Note: Define previous code using function]
+
+Example: Redefine the previous code
+
+def print_border(value):
+    for a in range(1, value):
+        for b in range(1, value):
+            if a == 1 or b == 1 or a == value-1 or b == value-1:
+                print(1, end = ' ')
+            else:
+                print(0, end = ' ')
+        print()  # Newline
+
+# Call the function
+print_border(5)
+print_border(20)
+     
+Example: Check the bit status of "gate"
+
+gate_number = int( input("Enter the gate number (1 to 8) : ") )
+gate_data = 0b11101001  # Max - 0 to 255
+power = 2 ** (gate_number-1)
+if gate_data & power:
+    print(f"{gate_number} is opened!!!")
+else:
+    print(f"{gate_number} is closed!!!")
+
+

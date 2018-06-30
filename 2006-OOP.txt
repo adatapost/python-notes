@@ -1,0 +1,114 @@
+Points to remembers
+===================
+
+1. ClassName() syntax will creates an object. However, you may assign object
+   reference to variable or not that is your choice.
+
+For instance,
+
+Point()  # An object will be created but its memory reference is not assigned
+         # so this object will be avaialble for this line only
+
+p = Point() # Will creates an object whose memory address is assigned to "p"
+
+2. Constructor or initializer __init__(self) method mainly used to define the
+   template of an object or object specific startup code.
+
+   Constructor also used to "copy" the one object content to current object.
+
+Example:
+
+class Point:
+    def __init__(self,x = 0,y = 0):
+        self.x = x
+        self.y = y
+    def show(self):
+        print(self.x, self.y)
+
+
+# Understand the object and behaviors
+
+# Create a Point object with 4,5 data and show it
+Point(4,5).show()
+
+# Create a Point object and store its reference for future use.
+p = Point(10,20)
+
+# Create a new Point object that contains data from previous Point object
+q = Point( p.x, p.y )
+
+r = Point()
+r.x = p.x + q.x 
+r.y = p.y + q.y 
+r.show()
+
+# OR -- Use the power of constructor
+r = Point( p.x+q.x, p.y+q.y )
+r.show()
+
+Example: The methods of class returns reference of current object -- returns "self"
+
+That is why chanining of methods will be used.
+
+class Data:
+    def __init__(self):
+        self.message = ""
+
+    def show(self):
+        print(self.message)
+        return self
+        
+    def set(self,message):
+        self.message = message
+        return self
+        
+    def append(self,message):
+        self.message = self.message + message
+        return self
+        
+
+q = Data().set("Hi").append(" Reena!").show().show().append("\nI'm Meena! How are you?").show()
+
+q.append("\nI'm fine!").append("and How do you do?").show()
+
+Example: Define MyCalc with add, mul and show() method
+
+class MyCalc:
+    def __init__(self):
+        self.no = 0
+    def add(self,no):
+        self.no += no
+        return self
+    def mul(self,no):
+        self.no *= no
+        return self
+    def show(self):
+        print(self.no)
+        return self
+
+MyCalc().add(30).add(20).add(-5).show().mul(2).show()
+
+Example: Define add(), and sub() methods in Point class which returns a brand new object instead of "self" that contanins addition or subtraction of two objects of Point.
+
+
+def add(self,other):
+    return Point( self.x
+
+def sub(self,other):
+    return Point( self.x - other.x, self.y - other.y)
+
+
+class Circle:
+    def __init__(self):
+      self.x = 0
+      self.y = 0
+      self.radius = 0
+    def area(self):
+      return 2 * 3.14 * self.radius
+
+
+
+
+
+ 
+

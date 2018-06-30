@@ -1,0 +1,281 @@
+Loop control statements
+=======================
+
+We've two loop keywords:
+
+ 1. while and
+ 2. for (or for in syntax)
+
+Syntax:
+
+  while condition:
+     statements....
+     .....
+  else:
+     ....
+     ....
+
+  for variable_name in range([start],stop):
+     statements.....
+     .....
+  else:
+     ....
+     .....
+
+ Note: The "else" clause is optional in both "while" and "for" loop.
+
+Example-1
+
+# Program - To print natural numbers between 1 to 10
+
+a = 1
+while a<=10:
+    print(a)
+    a = a + 1
+else:
+    print("This is the end of loop and the value of a is ", a)
+
+
+print() built-in function and its parameters
+--------------------------------------------
+print(value,......, sep = ' ', end = '\n')
+
+-> It prints value (or values) by adding "sep" value and at the end of print() it is terminated with "end" value ( \n newline is the default terminator).
+
+Example-2
+
+print(10,20,30,40)   # Separated by a blank
+
+print(10,20,30,40, sep = "|")   # Separated by | pipe 
+                                # output : 10|20|30|40
+print(10,20,30,40, sep = ")(")   # 10)(20)(
+
+Example-3 replace the "end" value
+
+# Print on same line (no newline between two or more output
+
+print("Hello", end = "")
+print("world", end = "")
+print("Python", end = "\n\n")
+print("is","dynamic","programming","language", sep = "\t")
+
+Example: Print febonacii series 0 1 1 2 3 5 8 ...... for n terms
+
+Pseudocode
+
+1.  a = 0 
+2.  b = 1
+3.  c = a + b
+4.  print( c)
+5.  a = b
+6   b =  c
+7.  goto step 3
+
+Dry run
+
+a	b	c
+0	1	1
+1	1	2
+1	2	3
+2	3	5
+
+# Fibonacii
+
+a, b, n = 0, 1, 1
+while n<=10:
+  c = a + b
+  print(a, end = " ")
+  a, b = b, c
+  n = n + 1
+
+Example: Program to input value using input(prompt) built-in function. This function accept or read value from keyboard and returns string data.
+
+# Program - Input value from keybaord
+
+no = input("Enter your roll no : ")
+name = input("Enter your name : ")
+
+print(no, name)
+print( type(no) )
+print( type(name) )
+
+The type conversion built-in functions - int(str), boolean(str), float(str)
+-------------------------------
+In order to convert string numeric data into int, boolean or float we should have to use these conversion functions.
+
+Example: Input two numbers and calculate addition, subtraction, multiplication, division, remainder, floor and power. (All these operations need numeric values)
+
+# Program - Input two numbers
+a = int( input("Enter first number : ") )
+b = int( input("Enter second number : ") )
+print(a + b)
+print(a - b)
+print(a / b)
+print(a // b)   # Floor
+print(a * b)
+print(a % b)    # Modulo
+print(a ** b)   # Power
+
+Example: 
+
+# Problem - Input number and reverse it
+
+no = int( input("Enter the number : ") )
+rev = 0
+while no > 0:
+  rem = no % 10
+  no = no // 10
+  rev = rev * 10 + rem
+
+print("Reverse number  : ", rev)
+
+no	rem	rev = 0
+147	7	7
+14	4	74
+1	1	741
+0
+
+Example: Program to input integer number and find the given number is "palindrome" or not. 
+
+
+Example: Program to input integer number and program to generate "binary" number.
+	e.g
+	no	binary
+	10	1010
+Example: Program to input binary integer number (e.g no = 1010) and calculate its decimal equivalent ( answer = 10)
+
+Example: Program to input int number and test whether a given number of perfect number or not?
+	
+   Perfect number is such number which is sum of all dividend of given number except the number itself.
+
+	e.g   no = 14 
+		and its dividents 1  2  7  = 1 + 2 + 7  = 10 which is not equals to 14
+							  hence it is not perfect
+	no = 28	
+		its dividents 1 2 4 7 14 = 1 + 2 + 4 + 7 + 14 = 28 <- perfect number
+
+	 
+The for in loop
+===============
+
+The for in loop uses "iterable" object -- an object that provide iterable items. (To "iterate" means to visit the each & every item of the collection).
+
+
+We will learn different-different types of "iterable" objects but right now we will use range(start,end) built-in function to generate iterable objects of numeric data.
+
+For, interative mode only (Practice)
+>>>range(10)  <-- It returns an object that contains sequence exclusive the value 10
+		  and start sequence value will be 0
+
+>>>for a in range(10):
+...     print(a)
+
+
+For better understandig use list( range(10) ) function,
+>>>list( range(10,20) )
+>>>list( range(20,10) )
+>>>list( range(-10,20) )
+
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+ char name[100],ch;
+ int i = 0;
+
+ clrscr();
+ gotoxy(1,1);
+ textcolor(YELLOW);
+ cprintf("Enter your text : ");
+ while( (ch = getch()) != '\r')
+ {
+   name[i] = ch;
+   i++;
+ }
+ name[i] = '\0';
+ gotoxy(1,20);
+ textcolor(RED);
+ cprintf("\n%s",name);
+
+ return 0;
+}
+
+Example: Print prime numbers between 1 to 1000
+Example:
+
+1 2 3 4 
+2 3 4 5
+3 4 5 6
+4 5 6 7
+
+1   2  3   4
+5   6  7   8
+9  10  11  12
+13 14  15  16
+
+1 0 1 0
+0 1 0 1
+1 0 1 0
+0 1 0 1
+
+1 0 0 0 1
+0 1 0 1 0
+0 0 1 0 0
+0 1 0 1 0
+1 0 0 0 1
+
+1 1 1 1 1
+1 0 0 0 1
+1 0 0 0 1
+1 0 0 0 1
+1 1 1 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

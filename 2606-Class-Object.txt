@@ -1,0 +1,57 @@
+The class object
+=================
+
+The "ClassName" itself consider as an object and attributes inside the class are accessed via "ClassName.MemberName" syntax.
+
+Data Attributes with Class Object
+-----------------------
+
+class Foo:
+   no = 10
+   name = "Heena"
+
+# Use the class object to access the data attributes
+
+print(Foo.no, Foo.name)
+Foo.no = 90
+print(Foo.no)
+
+Note: There must be only one copy of Data attributes of the class object and they can be shared by objects of same or different classes.
+
+The life and scope of the Class object Data attribute is thoughtout the program - they are created when program starts and remain in memory till your program is running. (This is similar concept as "global" variable but it has class scope).
+
+The decorator class
+===================
+The "decorator" is a special purpose class that provide insturctions and information to the python runtime. 
+We will use @classmethod and @staticmethod decorator to define the class methods and regular methods within the class.
+
+class Student:
+    college = "UVPC"    # Class variable/attribute
+    count = 0
+
+    def __init__(self, roll = 0, name = ""):
+        # Instance variable/attribute/data members
+        self.roll = roll  
+        self.name = name
+        Student.count+=1     # count of student
+    def show(self):
+        print(Student.college)
+        print("Roll : " , self.roll)
+        print("Name : ", self.name)
+    
+    # Class method
+    @classmethod
+    def college_info(cls):
+        print(F"There are {Student.count} in {Student.college}")
+
+# Test
+print(Student.college)        
+x = Student(1,"A")
+y = Student(2,"B")
+x.show()
+y.show()
+
+Student.college_info()
+
+
+

@@ -1,0 +1,66 @@
+The __init__(self,para1,...) 
+----------------------------
+
+Passing parameters to the "init -- initializer" method that help us to assign value to the object while constructing it.
+
+Example:
+
+class Date:
+   def __init__(self,d,m,y):
+      self.d = d
+      self.m = m
+      self.y = y
+   
+# Test the code
+x = Date() <--- Now this code throws/shows an error - three parameters required
+
+# Remove the above code and re-write,
+x = Date(18,6,2018)
+print(x.d, x.m, x.y )
+
+Example: Improve the initializer by setting up default argument value
+
+class Date:
+    def __init__(self, d = 0 , m = 0, y = 0):
+      self.d = d
+      self.m = m
+      self.y = y
+    def indian_format(self):
+        return F"{self.d}/{self.m}/{self.y}"
+
+
+# Test teh code
+x = Date(10, 2, 2002)
+a = Date()
+print(a.indian_format())
+print(x.indian_format())
+
+Constructor
+============
+It is a very special method of a class that will be called or invoked automatically when we create an object. In Python, __init__() is a constructor or initializer method.
+
+Example: Question class design
+
+class Question:
+   def __init__(self,question,option1,option2,option3,correct_option):
+      self.question = question
+      self.option1 = option1
+      self.option2 = option2
+      self.option3 = option3
+      self.correct_option = correct_option
+      self.user_choice = 0
+  def print(self):
+      print("Question :", self.question)
+      print("1. ", self.option1)
+      print("2. ", self.option2)
+      print("3. ", self.option3)
+      self.user_choice = int(input("Enter choice : "))
+ def is_correct(self):
+      return self.correct_option ==   self.user_choice
+
+# Test the code
+a = Question("What?","A","B","C",2)
+a.print()
+print("You're right!!") a.is_correct() else print("You're wrong!!!")
+   
+Example: Define "Stack" and "Queue" classes

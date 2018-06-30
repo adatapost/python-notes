@@ -1,0 +1,132 @@
+The re-usability - Reuse the classes
+=====================================
+There are two ways to reuse the classes:
+
+ 1. COmposite syntax -- Object composition 
+    
+    Use existing classes to define more complex classes by creating/declaring objects.
+
+    90% of software development uses "composite design" pattern.
+
+ 2. Inheritance (we will discuss this design in later session)
+
+    10% software design uses inheritance.
+
+    [Note Both these ways are very essential for software deveopment]
+
+
+Example: We have "Address (city,pin)" class that is used by another class "Student"
+         to represent student's local & postal addresses.
+
+class Address:
+    def __init__(self, city="", pin=0):
+        self.city = city
+        self.pin = pin
+
+class Student:
+    def __init__(self):
+        self.roll = 0
+        self.name = ""
+        self.local = Address()
+        self.postal = Address()
+
+# Test - 1
+
+p = Student()
+p.roll = 100
+p.name = "Meena"
+p.local.city = "Meh"
+p.local.pin = 384001
+p.postal.city = "Pat"
+p.postal.pin = 390001
+print(p.roll, p.name, p.local.city, p.local.pin, p.postal.city, p.postal.pin)
+
+Example: Add constructor parameters to Student() class.
+
+    ...
+    def __init__(self, roll = 0, name = "", local = None, postal = None):
+        self.roll = roll
+        self.name = name
+        self.local = local
+        self.postal = postal
+
+# Test - 2
+
+p = Student(10,"Meena",Address("Meh",384001),Address("Pat",499393))
+print(p.roll, p.name, p.local.city, p.local.pin, p.postal.city, p.postal.pin)
+
+# Test - 3
+
+# Suppose student has common address for local & postal
+a = Address("Meh",384001)
+p = Student(10,"Meena",a,a)
+print(.... print the data...)
+
+# and now there is different postal address
+p.postal = Address("Mumbai",400003)
+print(... )
+
+Example: Define the Category(name) and Product(name,rate,unit,Category_object)
+
+class Category:
+    def __init__(self, name=""):
+       self.name = name
+
+class Product:
+    def __init__(self,name,rate,unit,category):
+       self.....
+
+c1 = Category("Pen")
+c2 = Category("Pencil")
+p1 = Product("Rotomac .45",5,"Nog",c1)
+p2 = Product("Rotomac .25",15,"Nog",c1)
+p3 = Product("Rotomac HB 6",45,"Doz",c2)
+
+Example: Define Bill( Customer_ref, bill_no,bill_date, list-of-Products)
+|---------------------------------------|
+| Bill No : 1000   Date: 10/10/2002     |
+| Customer .......
+|----------------------------------------|
+| # | Name    | Qty   | Rate  |  Amount  |
+|----------------------------------------|
+| 1   Pemcil...  10      2        20
+  2
+  3
+| ....................................
+|                       Total  :  1230    |
+| Rs. One Thousand Thirty Only
+|------------------------------------------|
+
+Example: Amount in words
+
+
+one = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twleve","Thiteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Ninteen","Twenty"]
+two = ["","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninty"]
+no = 24909
+words = ""
+if no>9999:
+  d = no // 10000
+  words += two[d] + " Thousand "
+  no = no % 10000
+else:
+    if no<9999:
+          d = no // 1000
+          words += one[d] + " Thousand "
+          no = no % 1000
+
+if no>99:
+  d = no // 100
+  words += one[d] + " Hundred "
+  no = no % 100
+
+if no>20:
+  d = no // 10
+  r = no % 10
+  words += two[d] + " " + one[r]
+else:
+  words += one[no]
+  
+
+print(words)  
+
+

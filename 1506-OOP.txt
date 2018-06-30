@@ -1,0 +1,163 @@
+The Object-Oriented Paradigm
+============================
+
+Paradigm meaning is "Methodology" or "Style" to design the "progranms".
+
+What is an Object-Oriented Paradigm?
+
+  An Object-Oriented is a program design style which allows developers to:
+    1. Re-use the code without copying & pasting 
+    2. Enhance or Improve the existing code without affecting existing
+       environment
+    3. Define some sort of code protection --- Hide those things from others
+	which are nothing to them or have not importance to others.
+
+ In fact, above mentioned valid causes are technically explained by the following terms:
+    1. Encapsulation
+    2. Abstraction and
+    3. Polymorphism
+
+Encapsulation -- A way to bind "data" and "functions/actions" together is known as
+		 encapsulation.
+
+Abstraction   -- It is a technique to create outline between creator of the code and
+                 user of the code. That means creator of the code can change/update
+                 her/his code without affecting the users -- or users' code.
+
+		 Abstraction signify that one can hide something -- data or functions
+		 or both which are not really needed for end users.  
+
+Polymorphism  -- A mechanism that allows developer to define more than one behaviors
+		 of an entity (thing). In other words "One name and multiple forms".
+		 
+ 
+The Type or DataType or Class
+==============================
+A "Type" or "Class" or "DataType" is a unit that encapsulate the "data" & "functions" together.
+
+In other words, a "class" or "type" is a collection of "data" & "functions".
+
+In Python Language, we can create our own (user-defined) datatype or type or class using the "class" keyword.
+
+
+Syntax:
+
+class YourDataTypeName:
+    statements 
+    statements
+
+The "class" is a keyword (lower case) that define or create a new datatype.
+
+The "YourDataTypeName" is a valid identifier but it should follows the "PascalCase" nameing pattern. It is good practice to use "PascalCase" -- Capitalize the first letter of each word -- to name your datatype/class name. However, you may use lower, upper or mixed case letters to name the type.
+
+The "statements" inside the class are mostly "functions" --- along with a special parameters called "self".
+
+Syntax:
+
+class YourClassName:
+    def your_function(self): 
+        ....
+    def your_function1(self,param1,param2,...):
+        ....
+
+Syntax: To create an object of "YourClassName"
+
+var_name = YourClassName()  <--- This syntax is exactly look like a function syntax
+				 but the "PascalCase" name distinguish the syntax.
+
+ When an object is created by above statement, var_name = YourClassName(), python call  another function named __init__(self) automatically.
+
+ __init__(self) function allow us to define the "fields" or "members" of an object.
+
+ 
+The "self" is the first parameter of function that represents memory address/reference of an active object.
+
+Example: Program demonstrate when __init(self) is called
+
+class Test:
+      def __init__(self):
+         print("This is the first method will be called whenever an object created!")
+
+# Create the objects
+p = Test()
+q = Test()
+
+Example: Define the object template (structure) via __init__(self)
+
+class Date:
+  def __init__(self):
+    self.day = 0
+    self.month = 0
+    self.year = 0
+
+# Create some objects of Date class
+
+p = Date() # A New object with three fields day,month and year will be created
+           # and returns memory reference to variable "p"
+
+q = Date() # Another object with three fields will be created
+
+p.day = 10
+q.day = 20
+p.month =5
+p.year = 2010
+print(p.day, p.month, p.year)
+print(q.day, q.month, q.year)
+
+Example: Student class
+class Student:
+  def __init__(self):
+     self.roll = 0
+     self.name = ""
+     self.subjects = []
+
+# Create an object
+s1 = Student()
+s1.roll = 10
+s1.name = "Reena"
+s1.subjects = [20,30,40,50,3]
+print(s1.roll, s1.name)
+
+
+Example: Add more actions into "Student" class
+
+class Student:
+  def __init__(self):
+     self.roll = 0
+     self.name = ""
+     self.subjects = []
+  def show(self):
+     print("Roll.....:",self.roll)
+     print("Name.....:",self.name)
+     total = 0
+     for sub in self.subjects:
+        print("\t",sub)
+        total += sub
+      print("Total....:",total)
+  def set_student(self,roll, name, subjects):
+      self.roll = roll
+      self.name = name
+      self.subjects = subjects
+
+# Create an object
+s1 = Student()
+s1.roll = 10
+s1.name = "Reena"
+s1.subjects = [20,30,40,50,3]
+s1.show()
+
+s2 = Student()
+s2.set_student(11,"Meena",[55,65,66,77,44])
+s2.show()
+
+ 
+class Date: 
+   pass
+
+class Student:
+   pass
+
+
+p = Date()
+b = Student()
+

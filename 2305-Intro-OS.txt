@@ -1,0 +1,81 @@
+Introduction to Programming
+============================
+
+
+What do you meant by the term "Methodology" or "Paradigm"?
+-----------------------------------------------------------
+
+Methodology or Paradigm refers to the "program design method". 
+
+There are number of "program design" method around us and we will have to learn about two of the following:
+
+  1. Procedure oriented paradigm (or Imperative or structured programming) 
+	
+  2. Object-oriented paradigm
+
+Procedure oriented paradigm/programming
+---------------------------------------
+ -> It focus on functions/procedures/routies development 
+ -> The "function" is the smallest executable unit.
+ -> Normally, a problem (program) break down into two or more units.
+ -> To reuse the code -- function is more sutable.
+
+Object Oriented Paradigm
+------------------------
+
+-> An object means collection of reserved bytes (RAM). The size of an object
+   can be vary from 1 byte to 4GB and many more.
+-> In this approach (or paradigm), small objects are created and composite 
+   and then form another object.
+-> An object can bind the actions. For example, 
+     Date object has date & time related functions.
+     Number object has numberic actions like addition, subtraction, multiplication
+	and so on.
+-> To define an object, we must have to define "TYPE or datatype" first.
+-> A "TYPE or datatype" is blue print of an object.
+	For example,
+		10-10-2002     data or object belongs to Date
+-> A "Type" is also an "identity" of an object.
+
+		e.g.    int a,b,c;
+			float d;
+		The "d" is float and "a,b,c" are int objects.		 
+
+Computer languages: There are two types of computer languages.
+-----------------
+1. Low level - It uses binary number system for data & instructions
+2. High level - It uses English like syntax for data & instructions.
+
+C Language is "middle" level language because  it offers both; low and high level language features.
+
+What is source program?
+------------------------
+A "program" that is written by the human using a programming language is called "Source" program.
+
+What about the "Object Program"?
+--------------------------------
+A "program" that contains "binary insturctions" either written by the human or produced by the compiler is known as "object" program.
+
+Object program sometime refer as "Native code". (Native means operating system specific instructions).
+
+Flush or eat chars from  input keyboard buffer
+-------------------------------------------------
+ 
+
+int main()
+{
+   int n;
+   char ch;
+
+   printf("No : "); 
+   scanf("%d",&n);
+    
+   printf("Name : ");
+   while( (ch=getchar()) !='\n' );
+
+   scanf("%c",&ch);
+   printf("\n%d  %c  %d",n,ch,ch);
+   return 0;
+ }
+
+

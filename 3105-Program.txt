@@ -1,0 +1,78 @@
+How to define a Python module or program file and how to run?
+==============================================================
+
+First of all, create a folder where you want to save your Python source code files. 
+e.g c:\python\my-programs> (Your may choose your own folder name too)
+
+Now, create and set your directory via command prompt:
+
+c:\python\my-programs>
+
+Now, to create a python module (source file) -- We will use "notepad" to edit the .py file:
+
+C:\python\my-programs>notepad first.py  + Press Enter key ( Press "Yes" at confirmation 							dialog to create a file)
+
+Type following content in "first.py" file
+
+# Program - This program demonstrate the use of print() function
+# Date - Thru 31st May 2018
+
+print(10,20,"Hello Python!!!")   # Use , comma to separate the parameters
+print("Mehsana","Patan")
+
+# Declare variables
+roll = 10
+name = "Krina"
+
+print("======================")
+print("Roll.....: ", roll)
+print("Name.....: ", name)
+
+
+Now, save "first.py" and type following command at prompt:
+
+c:\python\my-programs>python first.py
+
+Example: Create a program that reads value from keyboard using input() function
+
+>notepad input-example.py
+
+# Program - Use of input() function
+
+roll = input("Enter the roll : ")
+name = input("Enter your name : ")
+
+print(roll, name)
+print("Hello my name is ", name, " and ", roll, " is my roll number.")
+
+>python input-example.py
+
+Example: String format prefix "f" to format the string -- In this expression, variables denoted with { } curly braces are expanded (It means expression will be replaced by their values)
+
+>notepad str-format.py
+
+# Program: F or f prefix to format the string
+
+roll = 10
+name = 'Reena'
+
+str = f'Hello, I am {name} and {roll} is my roll number.'
+print(str)
+
+str = f"""
+Dear {name},
+
+Mr. X here, a Science class teacher. 
+This remainder for you that don't 
+forget to carry number {roll} book because
+your roll is {roll} too!
+
+Teacher"""
+print(str)
+
+
+
+
+
+
+

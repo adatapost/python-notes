@@ -1,0 +1,231 @@
+Example: Design the invoice/bill
+
+
+class Product:
+    def __init__(self,name="",qty=0,unit="",rate=0):
+        self.name = name
+        self.qty = qty
+        self.rate = rate
+        self.unit = unit
+    def amount(self):
+        return self.qty * self.rate
+
+class Bill:
+    def __init__(self,bill_no=0,bill_date="",customer_name=""):
+        self.bill_no = bill_no
+        self.bill_date = bill_date
+        self.customer_name = customer_name
+
+        # List of products
+        self.items = []
+
+    def add_item(self,product):
+        self.items.append( product )
+
+    def show(self):
+        print("--------------------------------------------------------------")    
+        print("Bill No: ", self.bill_no,"           Bill Date : ",self.bill_date)
+        print("--------------------------------------------------------------")
+        print("#  Name                        Qty    Unit     Rate     Amount")
+        print("--------------------------------------------------------------")
+        count = 1
+        total = 0
+        for item in self.items:
+            print(count,item.name,"\t\t", item.qty, "\t", item.unit, "\t",item.rate,"\t", item.amount() )
+            count += 1
+            total += item.amount()
+        print("--------------------------------------------------------------")
+        print("                                               Total : ", total)
+        print("--------------------------------------------------------------")
+
+# Main
+
+a = Bill(10,"22-Jun-2018","Mr. A")
+a.add_item( Product("Navneet Fullscape Note",10,"Nog",40) )
+a.add_item( Product("Navneet Notebook",4,"Nog",30) )
+a.add_item(Product("Rotomac Pen", 10, "Doz", 40))
+a.add_item( Product(input("Name"), int(input("Qty")), input("Unit:"), int(input("Rate"))))
+
+a.show()
+
+
+Example: Updated version of "Bill" class
+
+
+class Product:
+    def __init__(self,name="",qty=0,unit="",rate=0):
+        self.name = name
+        self.qty = qty
+        self.rate = rate
+        self.unit = unit
+    def amount(self):
+        return self.qty * self.rate
+
+class Bill:
+    def __init__(self,bill_no=0,bill_date="",customer_name=""):
+        self.bill_no = bill_no
+        self.bill_date = bill_date
+        self.customer_name = customer_name
+        self.items = []
+
+    def add_item(self,product):
+        self.items.append( product )
+
+    def input_item(self):
+        self.add_item(Product(input("Name : "), int(input("Qty : ")),
+                              input("Unit :"), int(input("Rate : "))))
+
+    def show(self):
+        print("--------------------------------------------------------------")    
+        print("Bill No: ", self.bill_no,"           Bill Date : ",self.bill_date)
+        print("--------------------------------------------------------------")
+        print("#  Name                        Qty    Unit     Rate     Amount")
+        print("--------------------------------------------------------------")
+        count = 1
+        total = 0
+        for item in self.items:
+            print(count,item.name,"\t\t", item.qty, "\t", item.unit, "\t",item.rate,"\t", item.amount() )
+            count += 1
+            total += item.amount()
+        print("--------------------------------------------------------------")
+        print("                                               Total : ", total)
+        print("--------------------------------------------------------------")
+
+# Main
+
+a = Bill(10,"22-Jun-2018","Mr. A")
+choice = "y"
+while choice in ["y","yes","Y"]:
+    a.input_item()
+    choice = input("Want to continue... ?(yes/y/Y) : ")
+
+a.show()
+
+Example:
+
+ROll: xx
+NAME: xxxxx
+
+1             2            
+Sub1 56/100   Sub2 88/100
+Sub3 88/100   Sub5 33/200
+...
+...
+
+------------  -------------
+Total xxxx/xxxxx       xxx/xxxx
+
+
+class Student:
+  def __init__(self,roll_no):
+     self.roll_no = roll_no
+      
+     self.semesters = []
+
+class Mark:  (subjectname, total , obtain)
+   pass
+
+class Semester:
+   def __init__(self,sem_no):
+       self.sem_no = sem_no
+
+       self.marks = []
+
+Example: Design a component to represent family data
+
+class Person:
+    def __init__(self, name="", father = None, mother = None):
+        self.name = name
+        self.father = father
+        self.mother = mother
+        self.spouse = None
+
+    def partner(self,other):
+        self.spouse = other
+        other.spouse = self
+   
+# Main
+
+m1 = Person("M")        
+m2 = Person("N")
+m1.partner(m2)
+
+m3 = Person("V",m1,m2)
+m4 = Person("S")
+m4.partner(m3)
+
+m5 = Person("K",m3,m4)
+m6 = Person("Y",m3,m4)
+
+print(m5.name, m5.father.name, m5.father.father.name )
+
+Self-reference instance variables to represent object address of very same class
+================================================================================
+
+Following example demonstrate the function of "Linked List" where one object can store memory address of another and so on.
+
+class Student:
+    def __init__(self,roll = 0, name =""):
+        self.roll = roll
+        self.name = name
+        self.link = None   # Self reference variable
+
+s1 = Student(10,"Shreya")
+s2 = Student(13,"Krina")
+s3 = Student(15,"Yash")
+
+s2.link = s1
+s3.link = s2
+
+t = s3
+while t!=None:
+    print(t.roll, t.name)
+    t=t.link
+
+
+class Student:
+    def __init__(self,roll = 0, name =""):
+        self.roll = roll
+        self.name = name
+        self.link = None   # Self reference variable
+
+class StudentList:
+    def __init__(self):
+        self.first = None
+        self.last = None
+    def add(self,roll, name):
+        t = Student(roll,name)
+        if self.first == None:
+            self.first = self.last = t
+        else:
+            self.last.link = t
+            self.last = t
+    def show(self):
+        t = self.first
+        while t!=None:
+            print(t.roll, t.name)
+            t = t.link
+
+         
+
+s1 = StudentList()
+s1.add(10,"A")
+s1.add(20,"T")
+s1.add(3,"G")
+s1.add(31,"G1")
+s1.add(23,"3G")
+s1.show()
+
+
+ 
+ 
+
+
+
+
+
+        
+
+
+
+        

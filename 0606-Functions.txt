@@ -1,0 +1,156 @@
+Parameters, Arguments, Return value and function calls
+=======================================================
+
+What is parameter?
+  When we define a function and the variable name used as list of receving value are
+  known as "parameters"
+
+What is an argument?
+  When we call a function along with passing value -- such values are known as   "arguments".
+
+        ----------------- Parameters
+        | |
+        V V
+def add(n,m):
+    return n+m
+
+# Call the function
+p = 9
+q = 6
+r = add(p,q)    <--- p and q are arguments
+print(r)
+r = add(5,3)     <--- 5 and 3 are arguments
+print(r)
+
+What is return value?
+  A value that is returned by the "called function" to the "calling function" is termed as return value.
+
+  There should be one and only one return value a function has.
+
+How many different ways to define a function?
+--------------------------------------------
+Ans : 4 ways
+
+Following example demonstrate these different ways:
+
+# Functions to perform addition of two numbers
+
+# No parameter and no return value - Rigid function
+def add1():
+    no1 = int(input("No :"))
+    no2 = int(input("No :"))
+    print("Addition : ", no1+no2)
+
+# No parameter but returns - Still a rigid function
+def add2():
+    no1 = int(input("No :"))
+    no2 = int(input("No :"))
+    return no1+no2
+
+# Parameters and no return  - Partially rigid
+def add3(no1,no2):
+    print("Addition : ", no1+no2)
+
+# Parameters and returns  - Fully compatible
+def add4(no1, no2):
+    return no1+no2
+
+# Call
+add1()
+
+p = add2()
+print("Result is " , p + 10)
+
+add3(50,4)
+a = int(input("Enter first No : "))
+b = int(input("Enter second No : "))
+add3(a,b)
+
+p = add4(4,5)
+print(p)
+p = add4(20,p)
+print(p)
+p=add4(a,b)
+print(p)
+p = add4( add4(4,5), add4(add4(2,5),4))
+print(p)
+
+
+The "docstring" -- adding documentation string to function
+------------------------------------------------------------
+Syntax:
+
+def function_name(parameters):
+    """The content embed inside tripple single or double quotes
+       is called 'docstring'
+    """
+    .....
+    .....
+
+The "docstring" will be treated as comment or documentation by IDE (Integrated Developer Environment) or Tools.
+
+Example: define "is_prime(no)" that returns True if given number is prime, returns false otherwise.
+
+def is_prime(no):
+    """
+    This function returns true if given parameter is prime, returns
+    false otherwise
+    """
+    for a in range(2, no // 2 +1 ):
+        if no % a == 0:
+            return False
+    return True 
+
+# Call the function 
+no = int(input("Enter the no : "))
+
+if is_prime(no):
+    print("It is prime")
+else:
+    print("Not prime")
+
+# Print all primes between 1 to 100
+for a in range(1,101):
+    if is_prime(a): print(a)
+
+Example: Define three functions namely:
+  
+  is_open(data, bit_position) - returns true if opened, false otherwise
+  set(data, bit_position) - Turn on the given bit position's bit and returns
+			    the updated data
+  unset(data, bit_position) - Turn on the given bit position's bit and returns
+				updated data
+
+my-bitwise.py
+--------------
+
+def is_open(data, bit_position):
+    '''Returns True or False based upon bit status'''
+    return data & (2 ** (bit_position-1)) != 0
+
+def set(data, bit_position):
+    return data | (2 ** (bit_position-1))
+
+def unset(data, bit_position):
+    if is_open(data, bit_position):
+      return data ^ (2 ** (bit_position-1))
+    return data
+
+print( is_open(0b00001011,1) )
+print(is_open(0b10001000, 4))
+for i in range(1,9):
+    print(i, " => ", is_open(0b10101010,i))
+
+data = 0b0000_0000
+data = set(data, 3)
+print(data, bin(data))
+data = set(data, 8)
+print(data, bin(data))
+data = unset(data, 3)
+print(data, bin(data))
+
+
+
+    
+
+

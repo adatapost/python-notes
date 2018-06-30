@@ -1,0 +1,102 @@
+struct data 
+{
+    int no;
+    struct data *link;
+};
+
+
+struct data *p = malloc(sizeof(struct data));
+p->no = 10;
+
+p->link = malloc(sizeof(struct data));
+
+p->link->link = malloc(sizeof(struct data));
+
+p->link->link->link = malloc(sizeof(struct data));
+
+p->link->link->link->link = NULL;
+
+p->link->no = 20;
+
+p->link->link->no =30;
+
+p->link->link->link->no =50;
+
+
+struct data *t = p;
+
+while(t!=NULL)
+{
+   printf("\n%d", t->no);
+   t=t->link;
+}
+
+Dry run
+t	t->no
+1000    10
+2000    20
+500     30 
+4000    50
+NULL
+
+
+
+
+
+
+
+What is the application of "datatype"?
+
+  With the help of data type, memory manager of operating system create objects (   allocate the memory). We can't tell the OS to allocate bytes without specfying the
+  datatype -- it is impossible.
+
+  The "datatype" describes the "data" or structure of the "data" along with necessary
+  actions (functions).
+
+
+  Why int, float, char, double, void in C language are called "primitive" types?
+
+     Because these types are originated from the hardware and also they are
+     the origin of other TYPES including arrays, functions, structures , classes and
+     so on.
+
+   For example,
+
+            31-12-2002 10:20:20 AM 
+
+            add 50 hours and 50 minutes
+
+struct date 
+{
+   unsigned char d,m,y,h,m,s,a,timezone;
+};
+ 
+  3 % 2 = 1
+  3.4 % 2 = ? - In C language there is error
+
+int add(int a,int b) { return a+b; }
+
+add(4,5)
+(4,5)add
+
+ c =  5 + 4 * 5
+
+      *45 = x
+ 
+ 
+     5 + x
+     add(5,x)
+     add(5,mul(4,5))
+
+     +5*45
+
+
+ 
+
+
+
+
+
+
+
+

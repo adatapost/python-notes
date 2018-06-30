@@ -1,0 +1,20 @@
+md or mkdir  - Make directory
+cd           - Change directory
+rd	     - Remove an empty directory
+
+
+c:\>
+
+c:\Windows>
+
+c:\Python>
+
+C is called "Drive letter"
+\ is called "Root or Main" directory
+
+c:\>md Office
+c:\>cd Office
+c:\Office>dir
+.    <dir>    -- Current directory - is a directory in which we are working
+..   <dir>    -- Parent directory
+
