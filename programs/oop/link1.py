@@ -1,7 +1,3 @@
-This example demonstrate how to create a data-structure named "Linked List".
-
-Example:
-
 class Student:
     def __init__(self, roll = 0, name = ""):
         self.roll = roll 
@@ -12,7 +8,6 @@ class StudentList:
     def __init__(self):
         self.first = None
         self.last = None
-
     def add(self,std):
         if self.first == None:
             self.first = self.last = std
@@ -38,12 +33,6 @@ class StudentList:
             t = t.link
         if t.link!=None:
             t.link = t.link.link
-
-   def remove_first(self): 
-        pass
-
-   def remove_last(self):
-        pass
              
 
     def traverse(self):
@@ -66,32 +55,3 @@ a.insert_before("A",Student(102, "Seeeta"))
 a.remove("Seema")
 a.remove("A")
 a.traverse()
-
-
-Example: Doubly linked or Two way linked.
-
-There are two links -- prev; that can represent previous object address and
-                       next; that can represent next object address
-
-
-class Student:
-    def __init__(self, roll = 0, name = ""):
-        self.roll = roll 
-        self.name = name
-        self.prev = None
-        self.next = None
-
-
-a = Student(10,"A")
-b = Student(20,"B")
-
-a.next = b
-b.prev = a
-
-
-c = Student(4,"R")
-
-b.next = c
-c.prev = b
-
-b = None 
